@@ -1,4 +1,4 @@
 interface:
   display_name: "FarmIA Gestion Operativa"
-  short_description: "Gestion roadmap and audit memory"
-  default_prompt: "Use $farmia-gestion-operativa to plan the next Gestion Operativa step from the FarmIA roadmap, code map, and audit evidence."
+  short_description: "Plan and audit current Gestion flows"
+  default_prompt: "Use $farmia-gestion-operativa to inspect the current FarmIA Gestion contract and plan the smallest safe next step."

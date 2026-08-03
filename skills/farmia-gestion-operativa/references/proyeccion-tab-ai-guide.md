@@ -8,8 +8,8 @@ Use this guide when a task asks to change what is visible, editable, compact, or
 - `docs/AI_GUIDELINES.md`: AI workflow and documentation rules.
 - `docs/ARCHITECTURE.md`, section `Gestion Contract`: Proyeccion, Caja, fixed expenses, reserves, and DashboardFlujos contracts.
 - `docs/GESTION_UI.md`: Gestion UI primitives and visual rules.
-- `skills/farmia-gestion-operativa/references/gestion-code-map.md`: Gestion routes, services, tests, and boundaries.
-- `skills/farmia-gestion-operativa/references/gestion-v1-roadmap.md`: product intent for Caja, Proyeccion, and operating simplicity.
+- `gestion-code-navigation.md`: current Gestion layers, discovery commands, and tests.
+- `gestion-product-principles.md`: product intent for Caja, Proyeccion, and operating simplicity.
 - `tasks/lessons.md`: recent corrections. Search for `Proyeccion`, `Caja`, `recordatorio`, `estimacion`, and `descripciones estables`.
 
 ## Main Code Paths
@@ -129,6 +129,7 @@ Use this guide when a task asks to change what is visible, editable, compact, or
 - Useful test files:
   - `api/src/proyeccion/proyeccion.service.spec.ts`
   - `api/src/dashboard-flujos/dashboard-flujos.service.spec.ts`
+  - `e2e/gestion/gestion-control-caja-proyeccion.spec.ts`
 - Use browser/Playwright validation for user-facing layout:
   - `/flujos/proyeccion`
   - `/flujos` section `Riesgo de caja`

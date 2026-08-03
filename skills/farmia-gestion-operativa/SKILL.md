@@ -1,46 +1,46 @@
 ---
 name: farmia-gestion-operativa
-description: Plan, audit, and prioritize FarmIA Gestion Operativa work. Use when the task mentions Gestion roadmap, comprobantes a caja, Inicio Gestion, Facturas y pagos, Caja or Libro Diario, Documentos IA, Ficha 360, proveedor or cliente saldos, Gestion Agro operating flows, Proyeccion tab AI, Gestion data loading, prod-vs-dev Gestion audits, or next implementation steps for the Gestion module.
+description: Plan, audit, and prioritize FarmIA Gestion work from the current codebase. Use for Gestion Administrativa, Gestion Agro, Inicio Gestion, Caja, invoices, payments and collections, Documentos IA, Ficha 360, purchase and receipt reconciliation, grain operations and valuation, Proyeccion, operational periods, or deciding the next Gestion implementation step.
 ---
 
 # FarmIA Gestion Operativa
 
-Use this skill to route Gestion product memory without loading every FarmIA note into the prompt. Keep `AGENTS.md` for always-on operating rules; use these references for Gestion-specific product, code, and audit context.
+Use current FarmIA code and contracts as the source of truth. Use the bundled references for durable product rules and code-discovery guidance, not as a substitute for inspecting the active branch.
 
 ## Start
 
-1. Read `AGENTS.md`.
-2. Read `references/gestion-v1-roadmap.md` for product priorities, scope boundaries, and success criteria.
-3. Read `references/gestion-code-map.md` before recommending files, interfaces, tests, or implementation order.
-4. Read `references/gestion-audit-evidence.md` when comparing prod/dev, validating UI changes, or using prior audit findings.
-5. Read `references/proyeccion-tab-ai-guide.md` for Proyeccion AI behavior, editing rules, validation, and common pitfalls.
-6. Read `references/gestion-data-loading-manual.md` only when preparing, explaining, or validating manual Gestion data loads.
-7. If the task crosses frontend, API, DB, browser validation, branches, PRs, staging, or production, also read `skills/farmia-regression/SKILL.md`.
-8. If the task is only app startup or local ports, prefer `skills/farmia-startup/SKILL.md`.
+1. Locate the active `farmia_app` checkout and read its `AGENTS.md`.
+2. Read `docs/ARCHITECTURE.md`, especially `Gestion Contract`, for current business invariants.
+3. Inspect the relevant frontend, API, Prisma, and tests before recommending behavior or files.
+4. Read `references/gestion-product-principles.md` when prioritizing scope or product behavior.
+5. Read `references/gestion-code-navigation.md` before proposing implementation order or validation.
+6. Read `references/proyeccion-tab-ai-guide.md` only for Proyeccion, Caja forecast, fixed-flow, or cash-risk work.
+7. Use the repo's `farmia-regression` skill for cross-layer implementation, Git/PR coordination, browser validation, staging, production, database, or infrastructure work.
+8. Use the repo's `farmia-startup` skill for local startup, ports, Docker, or worktree runtime problems.
 
-## Decision Rules
+## Rules
 
-- Default the V1 product focus to `comprobantes a caja`: incoming documents or manual operations become reviewed records that impact invoices, payments, collections, caja, stock, agenda, and reports with traceable origins.
-- Do not start with formal accounting, IVA, AFIP, bank reconciliation, credits, placements, or complete ERP parity unless the user explicitly changes scope.
-- Keep `Movimiento` as real caja/flow, not a formal accounting entry.
-- Preserve fiscal data for future exports, but do not turn V1 into fiscal liquidation.
+- Prefer current code and tests when personal notes disagree with the repository. State the discrepancy.
+- Treat `upstream/main` as the stable base and follow the active `AGENTS.md` branch and remote rules.
+- Do not rely on fixed local ports or a separate `farmia_app_prod` checkout. Use the generated worktree manifest and launcher.
+- Preserve ignored task notes with `personal-codex/backup-worktree-notes.ps1` before deleting a worktree. Never archive `.env` files or secrets.
+- Keep `Movimiento` as real cash flow, not a formal accounting entry.
+- Require explicit, traceable transitions between documents, invoices, payments, collections, stock, grain, Caja, and reports.
+- Do not create duplicate economic impact when a read model already derives it from its source.
+- Preserve mandatory human review before Documentos IA creates an operational record.
 - Keep Gestion separate from GIS processing and Monitoreo unless a feature explicitly bridges them.
-- Before deleting a Gestion worktree, preserve its ignored task notes under `C:\Users\marti\OneDrive\Farmia\personal-codex\worktree-notes`; never archive `.env` files or secrets there.
-- Prefer current code over docs if they disagree; state the discrepancy and cite the code path.
-- Treat `farmia_app_prod` as comparison-only. Implement and commit in `farmia_app`.
 
-## Planning Workflow
+## Workflow
 
-- Start with the user goal and map it to the roadmap phase: agenda/caja, facturas/pagos/cobranzas, Documentos IA, Ficha 360, Gestion Agro, or contador exports.
-- Trace the business impact before naming files: source document or manual action -> reviewed entity -> caja/cuenta corriente/stock -> agenda/report.
-- Identify the minimum durable contract: source-of-truth model, API read/write path, frontend hook/component, validation/evidence.
-- Include a risk check for duplicated saldos, automatic caja movement edits, document apply without review, and Gestion/GIS/Monitoreo boundary confusion.
-- Recommend the smallest validation set: focused service tests first, then targeted Playwright or prod-vs-dev audit when the change is user-visible.
+1. Restate the user outcome and identify the authoritative business record.
+2. Trace the impact chain from source to Caja, account current, stock, agenda, projection, or report.
+3. Compare the requested behavior with the current contract and tests; do not assume an old roadmap item remains pending.
+4. Identify the smallest durable change across DTO/service/controller, frontend hook/component, Prisma, and tests as applicable.
+5. Check for duplicated balances, editable automatic movements, writes outside the active period, missing ownership, and document application without review.
+6. Validate with focused tests first, then the smallest relevant Gestion Playwright flow when behavior is user-visible.
 
-## Reference Map
+## References
 
-- `references/gestion-v1-roadmap.md`: product intent, phases, guardrails, immediate checklist, and criteria before moving to accounting/fiscal work.
-- `references/gestion-code-map.md`: routes, frontend components, hooks, API modules, model groups, safety boundaries, and validation commands.
-- `references/gestion-audit-evidence.md`: local prod/dev setup, visual audit findings, improved empty states, redirects, and prior comparison evidence.
-- `references/proyeccion-tab-ai-guide.md`: Proyeccion AI code paths, product rules, editable/read-only behavior, validation, and pitfalls.
-- `references/gestion-data-loading-manual.md`: ordered manual data-loading procedure, relational example, user interpretation, and DBeaver checks.
+- `references/gestion-product-principles.md`: durable scope and prioritization rules.
+- `references/gestion-code-navigation.md`: search-first map of current Gestion layers and validation.
+- `references/proyeccion-tab-ai-guide.md`: Proyeccion-specific behavior and pitfalls.

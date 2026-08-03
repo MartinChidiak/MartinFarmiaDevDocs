@@ -1,11 +1,13 @@
 # FarmIA personal para Codex
 
 Esta carpeta es la fuente estable de configuracion personal de Martin para
-FarmIA. Esta fuera de `farmia_app` y de `worktrees`, por lo que:
+FarmIA y el checkout local del repositorio privado `MartinFarmiaDevDocs`. Esta
+fuera de `farmia_app` y de `worktrees`, por lo que:
 
 - no puede entrar accidentalmente en un commit o PR de FarmIA;
 - no desaparece al borrar un worktree;
-- OneDrive conserva una copia sincronizada de los archivos normales;
+- Git conserva el historial de scripts, skills y documentacion personal;
+- OneDrive conserva una copia sincronizada del checkout local;
 - Codex puede descubrir las skills mediante enlaces personales en
   `C:\Users\marti\.agents\skills`.
 
@@ -16,17 +18,25 @@ FarmIA. Esta fuera de `farmia_app` y de `worktrees`, por lo que:
   de computadora o se elimina la configuracion local de Codex.
 - `backup-worktree-notes.ps1`: copia las notas ignoradas de todos los
   worktrees registrados antes de limpiarlos.
-- `config/farmia-project.config.toml`: respaldo de la configuracion MCP
-  personal aplicada al proyecto.
+- `config/farmia-project.config.example.toml`: ejemplo seguro sin credenciales.
+- `config/farmia-project.config.toml`: configuracion MCP local ignorada por Git.
 - `install-git-guard.ps1` y `git-hooks/`: proteccion local contra commits
   accidentales de configuracion personal o secretos.
 - `worktree-notes/`: destino recomendado para notas que deban sobrevivir al
-  borrado de un worktree. No guardar secretos ni archivos `.env` aqui.
+  borrado de un worktree. Esta carpeta no se versiona. No guardar secretos ni
+  archivos `.env` aqui.
 
 Las skills compartidas con todo el equipo siguen viviendo versionadas en
 `farmia_app/skills`. Una skill personal solo debe pasar al repositorio mediante
 una rama y un PR que incluyan la skill completa, sus referencias y la
 documentacion correspondiente.
+
+## Seguridad
+
+No versionar configuraciones reales, `.env`, API keys, passwords, tokens,
+dumps de base de datos, artefactos con datos ni historiales completos de
+worktrees. La configuracion real y `worktree-notes/` estan excluidos por
+`.gitignore`; verificar siempre `git diff --cached` antes de cada push.
 
 ## Recuperar los enlaces de Codex
 
