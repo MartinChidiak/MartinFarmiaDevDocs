@@ -1,0 +1,4 @@
+interface:
+  display_name: "FarmIA Documentation Routing"
+  short_description: "Route FarmIA documents to the right place"
+  default_prompt: "Use $farmia-documentation-routing to decide where this FarmIA document or local note belongs."
