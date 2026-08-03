@@ -1,0 +1,20 @@
+#!/bin/sh
+
+blocked=""
+
+for path in $(git diff --cached --name-only --diff-filter=ACMR); do
+  case "$path" in
+    .codex/config.toml|.env|.env.*|*/.env|*/.env.*|skills/farmia-gestion-operativa/*|docs/PROYECCION_TAB_AI_GUIDE.md|docs/GESTION_DATA_LOADING_MANUAL.md)
+      blocked="$blocked\n  - $path"
+      ;;
+  esac
+done
+
+if [ -n "$blocked" ]; then
+  printf 'Commit bloqueado por la proteccion local de FarmIA.\n'
+  printf 'Archivos personales o sensibles en staging:%b\n' "$blocked"
+  printf 'Quitalos de staging o revisa deliberadamente el hook personal.\n'
+  exit 1
+fi
+
+exit 0

@@ -1,0 +1,4 @@
+interface:
+  display_name: "FarmIA Gestion Operativa"
+  short_description: "Gestion roadmap and audit memory"
+  default_prompt: "Use $farmia-gestion-operativa to plan the next Gestion Operativa step from the FarmIA roadmap, code map, and audit evidence."

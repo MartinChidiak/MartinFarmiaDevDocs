@@ -1,0 +1,20 @@
+# Secrets and machine-local configuration
+config/*.toml
+!config/*.example.toml
+.env
+.env.*
+*.pem
+*.key
+
+# Local worktree history and potentially sensitive artifacts
+worktree-notes/
+artifacts/
+*.dump
+*.sql
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+

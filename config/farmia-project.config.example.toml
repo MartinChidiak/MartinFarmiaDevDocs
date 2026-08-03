@@ -1,0 +1,7 @@
+# Safe example only. Keep personal MCP configuration in the user-level Codex
+# config and inject credentials through environment variables. Never copy
+# passwords, tokens, API keys, or credential-bearing database URLs here.
+
+[mcp_servers.notion]
+url = "https://mcp.notion.com/mcp"
+
