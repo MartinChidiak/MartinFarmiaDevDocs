@@ -138,10 +138,36 @@ Recomendacion: no copiar masivamente a DevDocs.
 Conservar si sirve como benchmark de producto. No mezclar con documentacion
 tecnica de FarmIA salvo que se transforme en una decision concreta.
 
+## Primera pasada ejecutada
+
+Ejecutado el 2026-08-10.
+
+Destino:
+`C:\Users\marti\OneDrive\Farmia\Files\documentacion-local-archivada\2026-08-10`.
+
+Se movieron carpetas historicas o de evidencia temporal, sin borrar contenido:
+
+| Destino | Origen | Archivos |
+| --- | --- | ---: |
+| `01_instructivos_historicos\0_Instructivos` | `0_Instructivos` | 12 |
+| `02_planes_historicos\1_Objetivo_Pasos` | `1_Objetivo_Pasos` | 1 |
+| `03_auditorias_y_evidencia\2_Auditorias` | `2_Auditorias` | 3116 |
+| `04_referencias_competencia\3_Competencia` | `3_Competencia` | 23 |
+
+Total archivado: 3152 archivos, aproximadamente 730 MB.
+
+La carpeta raiz `0_Instructivos` quedo vacia, pero no se pudo eliminar por un
+bloqueo de permisos/OneDrive. Su contenido fue movido correctamente.
+
+`personal-codex` fue sincronizado con `MartinFarmiaDevDocs`: los dos documentos
+de integraciones dejaron de existir como archivos no versionados y ahora viven
+como archivos versionados del repo privado.
+
 ## Proxima pasada sugerida
 
-1. Crear carpeta local `archivo-documentacion-local\2026-08-10`.
-2. Mover ahi auditorias y artefactos temporales, sin borrar todavia.
-3. Dejar en la raiz solo documentos que se consultan activamente.
-4. Extraer de cada auditoria vigente una decision corta hacia DevDocs.
-5. Borrar artefactos generados solo cuando no aporten evidencia unica.
+1. Revisar dentro de `03_auditorias_y_evidencia` que reportes principales
+   siguen teniendo decisiones utiles.
+2. Extraer solo esas decisiones a documentos curados cortos.
+3. Borrar artefactos generados solo cuando no aporten evidencia unica.
+4. Intentar eliminar la carpeta vacia `0_Instructivos` cuando OneDrive libere
+   el bloqueo.
