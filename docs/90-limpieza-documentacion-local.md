@@ -143,7 +143,7 @@ tecnica de FarmIA salvo que se transforme en una decision concreta.
 Ejecutado el 2026-08-10.
 
 Destino:
-`C:\Users\marti\OneDrive\Farmia\Files\documentacion-local-archivada\2026-08-10`.
+`C:\Users\marti\OneDrive\Farmia\Archivado\documentacion-local-archivada\2026-08-10`.
 
 Se movieron carpetas historicas o de evidencia temporal, sin borrar contenido:
 
