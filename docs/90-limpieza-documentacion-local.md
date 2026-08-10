@@ -153,11 +153,15 @@ Se movieron carpetas historicas o de evidencia temporal, sin borrar contenido:
 | `02_planes_historicos\1_Objetivo_Pasos` | `1_Objetivo_Pasos` | 1 |
 | `03_auditorias_y_evidencia\2_Auditorias` | `2_Auditorias` | 3116 |
 | `04_referencias_competencia\3_Competencia` | `3_Competencia` | 23 |
+| `05_farmios_test_prints\5_farmios_test\prints` | `5_farmios_test\prints` | 165 |
 
-Total archivado: 3152 archivos, aproximadamente 730 MB.
+Total archivado: 3318 archivos, aproximadamente 713 MB.
 
 La carpeta raiz `0_Instructivos` quedo vacia, pero no se pudo eliminar por un
 bloqueo de permisos/OneDrive. Su contenido fue movido correctamente.
+
+La carpeta `5_farmios_test` quedo sin contenido visible despues de mover
+`prints`.
 
 `personal-codex` fue sincronizado con `MartinFarmiaDevDocs`: los dos documentos
 de integraciones dejaron de existir como archivos no versionados y ahora viven
