@@ -10,6 +10,7 @@ Carpetas revisadas:
 - `C:\Users\marti\OneDrive\Farmia\1_Objetivo_Pasos`
 - `C:\Users\marti\OneDrive\Farmia\2_Auditorias`
 - `C:\Users\marti\OneDrive\Farmia\3_Competencia`
+- `C:\Users\marti\OneDrive\Farmia\Gestion - Agro`
 - `C:\Users\marti\OneDrive\Farmia\personal-codex\docs`
 - `C:\Users\marti\OneDrive\Farmia\farmia_app\docs`
 
@@ -196,3 +197,29 @@ Conclusiones:
   aproximadamente 210 MB, sin carpetas generadas de esos patrones;
 - `adm-zip@0.5.17` queda como pendiente tecnico real, no como asunto de
   limpieza documental.
+
+## Revision adicional: `Gestion - Agro`
+
+Ejecutado el 2026-08-10.
+
+La carpeta `C:\Users\marti\OneDrive\Farmia\Gestion - Agro` era material local
+historico, no un checkout util del repo: tenia `.git`, pero `git status`
+indicaba una rama `master` sin commits, sin remotos y con todos los documentos
+sin versionar.
+
+Contenido relevado:
+
+- 160 archivos, aproximadamente 25 MB;
+- 1 markdown de auditoria/storytelling del 22/07/2026;
+- 2 documentos Word narrativos del 24/07/2026;
+- 5 PDFs renderizados;
+- 96 PNGs de capturas o QA visual;
+- 2 scripts Python de construccion de documentos.
+
+Se extrajeron a `03-auditorias-gestion-decisiones-curadas.md` las decisiones
+que agregaban valor: guion de demo, limites de MVP y advertencias para no
+presentar forecast, deuda, stock o Caja como si fueran el mismo hecho.
+
+El hallazgo historico sobre variables BCR en `api/.env.example` fue contrastado
+contra `farmia_app` actual y ya esta absorbido: el ejemplo, `docker-compose.yml`
+y `market-price.providers.ts` usan los nombres actuales.

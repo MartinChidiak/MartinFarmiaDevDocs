@@ -20,6 +20,9 @@ Reportes principales usados:
 - `gestion-agro-remitos-ia-2026-07-20\documentos-ia-routing-2026-07-20.md`
 - `gestion-agro-ux-2026-07-17\REPORTE_GESTION_AGRO_UX_2026-07-17.md`
 - `2026-07-16_Gestion_Agro_Auditoria_Integral\AUDITORIA_INTEGRAL_GESTION_AGRO_2026-07-16.md`
+- `C:\Users\marti\OneDrive\Farmia\Gestion - Agro\AUDITORIA_GESTION_AGRO_STORYTELLING_2026-07-22.md`
+- `C:\Users\marti\OneDrive\Farmia\Gestion - Agro\Guia_lectura_Gestion_FarmIA_2026-07-24`
+- `C:\Users\marti\OneDrive\Farmia\Gestion - Agro\MVP_Gestion_FarmIA_2026-07-24`
 
 Contraste actual:
 
@@ -104,6 +107,41 @@ contexto esta operando. Las auditorias UX validan estas reglas:
 - en mobile, tablas operativas largas necesitan tarjetas o patrones
   equivalentes para lectura y accion.
 
+### La demo debe contar hechos y efectos, no pantallas
+
+Los documentos de `Gestion - Agro` agregan valor como guia de storytelling. La
+frase operativa vigente es:
+
+> FarmIA separa y conecta lo planificado, lo comprometido, lo que ocurrio
+> fisicamente y el dinero que realmente se movio.
+
+Para explicar Gestion, conviene nombrar siempre:
+
+- el origen del dato;
+- el estado del registro;
+- el efecto fisico, economico o financiero;
+- si la lectura es explicita, estimada, pendiente o parcial.
+
+Esto evita vender como cierre definitivo lo que todavia es forecast,
+conciliacion pendiente, costo incompleto o dato estimado.
+
+### Limites de MVP que siguen siendo utiles para presentaciones
+
+Estos limites son de producto/comunicacion, aunque parte del codigo haya
+evolucionado despues:
+
+- FarmIA Gestion no reemplaza contabilidad formal, impuestos, AFIP ni
+  conciliacion bancaria.
+- Gestion Agro puede usar campana, cliente, campo o lote como contexto, pero no
+  debe explicarse como procesamiento GIS.
+- Crear un cultivo no crea automaticamente OT, labores ni insumos.
+- La comparacion OT versus ejecucion es de hectareas; no hay presupuesto
+  tecnico completo de dosis/costos por OT como contrato cerrado.
+- Maquinaria es opcional; si no se usa, el circuito sigue, pero el margen pierde
+  costo propio estructurado de equipos.
+- Resultados es lectura calculada sobre fuentes operativas; no debe convertirse
+  en un nuevo origen de verdad.
+
 ### Carta de Porte debe permitir correccion operativa controlada
 
 El hallazgo P1 historico era que una Carta de Porte cerrada generaba entrada de
@@ -124,6 +162,10 @@ se reabre con transiciones explicitas. Un borrador sin efectos puede eliminarse.
   limpieza posterior, en lugar de borrar objetos de forma opaca.
 - Carta de Porte cerrada: existen acciones actuales para reabrir/anular y
   borrar borradores.
+- Variables BCR GIX: el documento de storytelling marcaba que
+  `api/.env.example` usaba nombres viejos. El estado actual ya usa
+  `BCR_GIX_BASE_URL`, `BCR_GIX_API_KEY` y `BCR_GIX_SECRET`, alineado con
+  `docker-compose.yml` y `market-price.providers.ts`.
 
 ## Pendientes que no conviene perder
 
