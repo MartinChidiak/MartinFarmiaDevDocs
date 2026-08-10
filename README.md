@@ -14,6 +14,8 @@ fuera de `farmia_app` y de `worktrees`, por lo que:
 ## Estructura
 
 - `skills/`: skills personales y sus referencias. Esta es la fuente canonica.
+- `docs/`: documentacion personal curada sobre FarmIA, integraciones,
+  criterios de lectura y limpieza local.
 - `install-codex-links.ps1`: recrea los enlaces globales de Codex si se cambia
   de computadora o se elimina la configuracion local de Codex.
 - `backup-worktree-notes.ps1`: copia las notas ignoradas de todos los
@@ -25,6 +27,8 @@ fuera de `farmia_app` y de `worktrees`, por lo que:
 - `worktree-notes/`: destino recomendado para notas que deban sobrevivir al
   borrado de un worktree. Esta carpeta no se versiona. No guardar secretos ni
   archivos `.env` aqui.
+
+Indice principal de documentos: [docs/README.md](./docs/README.md).
 
 Las skills compartidas con todo el equipo siguen viviendo versionadas en
 `farmia_app/skills`. Una skill personal solo debe pasar al repositorio mediante
