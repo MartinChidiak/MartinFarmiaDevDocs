@@ -23,6 +23,7 @@ preferir el codigo y actualizar este repo.
 | --- | --- |
 | [Mapa actual de FarmIA](./01-mapa-farmia-actual.md) | Vista rapida de modulos, carpetas y fuentes autoritativas actuales. |
 | [Gestion operativa actual](./02-gestion-operativa-actual.md) | Guia personal para ubicarse en Gestion Administrativa, Gestion Agro, Caja, Documentos IA, compras, granos y Proyeccion. |
+| [Auditorias Gestion - decisiones curadas](./03-auditorias-gestion-decisiones-curadas.md) | Segunda pasada sobre auditorias historicas: decisiones que siguen vigentes, hallazgos absorbidos y pendientes reales. |
 | [Limpieza de documentacion local](./90-limpieza-documentacion-local.md) | Clasificacion inicial de auditorias, instructivos y artefactos locales. |
 | [A3 MarketData](./integraciones/A3_MARKETDATA_FARMIA.md) | Integracion privada de cotizaciones A3, sin credenciales reales. |
 | [Variables macro compartidas](./integraciones/VARIABLES_MACRO_COMPARTIDAS_FARMIA.md) | Resumen privado de la centralizacion de variables macro. |
@@ -38,8 +39,7 @@ preferir el codigo y actualizar este repo.
 ## Siguiente mantenimiento recomendado
 
 1. Revisar `90-limpieza-documentacion-local.md`.
-2. Mover a una carpeta local de archivo los reportes de auditoria historicos
-   que solo prueban un estado viejo.
-3. Convertir solo las decisiones vigentes a docs curadas cortas.
-4. Antes de borrar, verificar que no sean la unica evidencia de una decision
-   operativa todavia vigente.
+2. Revisar periodicamente los pendientes marcados en
+   `03-auditorias-gestion-decisiones-curadas.md`.
+3. Cuando un pendiente se cierre en `farmia_app`, actualizar este repo o mover
+   la decision a la documentacion compartida que corresponda.

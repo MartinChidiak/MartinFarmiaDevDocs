@@ -169,9 +169,30 @@ como archivos versionados del repo privado.
 
 ## Proxima pasada sugerida
 
-1. Revisar dentro de `03_auditorias_y_evidencia` que reportes principales
-   siguen teniendo decisiones utiles.
-2. Extraer solo esas decisiones a documentos curados cortos.
-3. Borrar artefactos generados solo cuando no aporten evidencia unica.
-4. Intentar eliminar la carpeta vacia `0_Instructivos` cuando OneDrive libere
+1. Intentar eliminar la carpeta vacia `0_Instructivos` cuando OneDrive libere
    el bloqueo.
+2. Revisar los pendientes tecnicos marcados en
+   `03-auditorias-gestion-decisiones-curadas.md`.
+
+## Segunda pasada ejecutada
+
+Ejecutado el 2026-08-10.
+
+Se revisaron reportes principales dentro de:
+`C:\Users\marti\OneDrive\Farmia\Archivado\documentacion-local-archivada\2026-08-10\03_auditorias_y_evidencia\2_Auditorias`.
+
+Las decisiones todavia utiles quedaron extraidas en:
+`docs/03-auditorias-gestion-decisiones-curadas.md`.
+
+Conclusiones:
+
+- los reportes markdown principales siguen archivados como contexto historico;
+- las decisiones vigentes ya tienen un resumen corto en `personal-codex`;
+- se eliminaron 76 carpetas generadas por Playwright, HTML reports,
+  screenshots, videos, traces, exportaciones reproducibles y carpetas
+  `artifacts*`;
+- la limpieza retiro 1454 archivos generados, aproximadamente 355 MB;
+- `03_auditorias_y_evidencia\2_Auditorias` quedo con 1662 archivos,
+  aproximadamente 210 MB, sin carpetas generadas de esos patrones;
+- `adm-zip@0.5.17` queda como pendiente tecnico real, no como asunto de
+  limpieza documental.
