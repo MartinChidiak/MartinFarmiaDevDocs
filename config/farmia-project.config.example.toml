@@ -1,7 +1,16 @@
-# Safe example only. Keep personal MCP configuration in the user-level Codex
-# config and inject credentials through environment variables. Never copy
-# passwords, tokens, API keys, or credential-bearing database URLs here.
+# Plantilla segura. Copiar como farmia-project.config.toml y usar rutas reales
+# solo en ese archivo ignorado. No guardar tokens, passwords ni URLs con
+# credenciales.
 
-[mcp_servers.notion]
-url = "https://mcp.notion.com/mcp"
+[machine]
+id = "laptop-ejemplo"
 
+[paths]
+farmia_app = "C:\\dev\\farmia_app"
+farmia_docs = "C:\\dev\\farmia_docs"
+worktrees = "C:\\dev\\worktrees"
+
+[runtime]
+compose_command = "docker compose"
+node_command = "node"
+preferred_shell = "powershell"

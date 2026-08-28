@@ -4,12 +4,12 @@ Fecha de curacion: 2026-08-10.
 
 Este documento reemplaza como lectura rapida a los reportes historicos grandes
 de `2_Auditorias`. No reemplaza al codigo actual ni a
-`C:\Users\marti\OneDrive\Farmia\farmia_app\docs\ARCHITECTURE.md`.
+`farmia_app/docs/ARCHITECTURE.md` del checkout activo.
 
 ## Fuentes revisadas
 
 Archivo local:
-`C:\Users\marti\OneDrive\Farmia\Archivado\documentacion-local-archivada\2026-08-10\03_auditorias_y_evidencia\2_Auditorias`.
+`<raiz-historica-FarmIA>\Archivado\documentacion-local-archivada\2026-08-10\03_auditorias_y_evidencia\2_Auditorias`.
 
 Reportes principales usados:
 
@@ -20,9 +20,9 @@ Reportes principales usados:
 - `gestion-agro-remitos-ia-2026-07-20\documentos-ia-routing-2026-07-20.md`
 - `gestion-agro-ux-2026-07-17\REPORTE_GESTION_AGRO_UX_2026-07-17.md`
 - `2026-07-16_Gestion_Agro_Auditoria_Integral\AUDITORIA_INTEGRAL_GESTION_AGRO_2026-07-16.md`
-- `C:\Users\marti\OneDrive\Farmia\Gestion - Agro\AUDITORIA_GESTION_AGRO_STORYTELLING_2026-07-22.md`
-- `C:\Users\marti\OneDrive\Farmia\Gestion - Agro\Guia_lectura_Gestion_FarmIA_2026-07-24`
-- `C:\Users\marti\OneDrive\Farmia\Gestion - Agro\MVP_Gestion_FarmIA_2026-07-24`
+- `<raiz-historica-FarmIA>\Gestion - Agro\AUDITORIA_GESTION_AGRO_STORYTELLING_2026-07-22.md`
+- `<raiz-historica-FarmIA>\Gestion - Agro\Guia_lectura_Gestion_FarmIA_2026-07-24`
+- `<raiz-historica-FarmIA>\Gestion - Agro\MVP_Gestion_FarmIA_2026-07-24`
 
 Contraste actual:
 

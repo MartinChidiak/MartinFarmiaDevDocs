@@ -4,8 +4,8 @@ Fecha de trabajo: 2026-08-03
 
 ## Ubicacion del cambio
 
-- Repositorio: `C:\Users\marti\OneDrive\Farmia\farmia_app`
-- Worktree aislado: `C:\Users\marti\OneDrive\Farmia\worktrees\gestion-administrativa-macro-compartida`
+- Repositorio: checkout activo de `farmia_app` en la máquina usada.
+- Worktree aislado: worktree temático bajo la raíz configurada para esa máquina.
 - Rama: `tincho/gestion-administrativa-macro-compartida`
 - Base de creacion: `upstream/main` en `7096322cdc9069b965ce837ba3a6dbc185c83dcd`
 - Destino previsto, solo cuando se autorice: push de esa rama a `upstream` y PR contra `upstream/main`.

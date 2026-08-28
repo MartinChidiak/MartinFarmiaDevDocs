@@ -1,0 +1,7 @@
+interface:
+  display_name: "FarmIA Local Maintenance"
+  short_description: "Mantenimiento local seguro de FarmIA"
+  default_prompt: "Use $farmia-local-maintenance to diagnose and repair this FarmIA local environment safely."
+
+policy:
+  allow_implicit_invocation: true

@@ -2,17 +2,20 @@
 
 Fecha de relevamiento: 2026-08-10.
 
+`<raiz-historica-FarmIA>` representa la carpeta local usada durante esta
+auditoria. Es evidencia historica, no una ruta requerida por los scripts.
+
 ## Alcance inspeccionado
 
 Carpetas revisadas:
 
-- `C:\Users\marti\OneDrive\Farmia\0_Instructivos`
-- `C:\Users\marti\OneDrive\Farmia\1_Objetivo_Pasos`
-- `C:\Users\marti\OneDrive\Farmia\2_Auditorias`
-- `C:\Users\marti\OneDrive\Farmia\3_Competencia`
-- `C:\Users\marti\OneDrive\Farmia\Gestion - Agro`
-- `C:\Users\marti\OneDrive\Farmia\personal-codex\docs`
-- `C:\Users\marti\OneDrive\Farmia\farmia_app\docs`
+- `<raiz-historica-FarmIA>\0_Instructivos`
+- `<raiz-historica-FarmIA>\1_Objetivo_Pasos`
+- `<raiz-historica-FarmIA>\2_Auditorias`
+- `<raiz-historica-FarmIA>\3_Competencia`
+- `<raiz-historica-FarmIA>\Gestion - Agro`
+- el checkout privado de DevDocs usado entonces;
+- el checkout de `farmia_app` usado entonces.
 
 No se borraron archivos durante esta primera pasada.
 
@@ -24,11 +27,11 @@ No se borraron archivos durante esta primera pasada.
   snapshots, errores de Playwright y exportaciones.
 - `0_Instructivos` contiene guias de junio que pueden contradecir la estructura
   actual del monorepo.
-- `personal-codex/docs/integraciones` tenia dos documentos no versionados que
+- `docs/integraciones` del checkout privado tenia dos documentos no versionados que
   son candidatos claros para `MartinFarmiaDevDocs`: A3 MarketData y Variables
   Macro Compartidas.
 - El repo `MartinFarmiaDevDocs` fue clonado limpio desde GitHub en
-  `C:\Users\marti\OneDrive\Farmia\MartinFarmiaDevDocs`.
+  un checkout local de `MartinFarmiaDevDocs`.
 
 ## Clasificacion recomendada
 
@@ -53,7 +56,7 @@ Ejemplos ya existentes:
 
 ### Versionar en MartinFarmiaDevDocs
 
-Destino: `C:\Users\marti\OneDrive\Farmia\MartinFarmiaDevDocs\docs`.
+Destino: `docs/` del checkout local de `MartinFarmiaDevDocs`.
 
 Usar para:
 
@@ -74,7 +77,7 @@ Ya incorporado en esta pasada:
 ### Archivar localmente
 
 Destino sugerido:
-`C:\Users\marti\OneDrive\Farmia\archivo-documentacion-local\YYYY-MM-DD`.
+`<raiz-historica-FarmIA>\archivo-documentacion-local\YYYY-MM-DD`.
 
 Usar para:
 
@@ -144,7 +147,7 @@ tecnica de FarmIA salvo que se transforme en una decision concreta.
 Ejecutado el 2026-08-10.
 
 Destino:
-`C:\Users\marti\OneDrive\Farmia\Archivado\documentacion-local-archivada\2026-08-10`.
+`<raiz-historica-FarmIA>\Archivado\documentacion-local-archivada\2026-08-10`.
 
 Se movieron carpetas historicas o de evidencia temporal, sin borrar contenido:
 
@@ -164,7 +167,7 @@ bloqueo de permisos/OneDrive. Su contenido fue movido correctamente.
 La carpeta `5_farmios_test` quedo sin contenido visible despues de mover
 `prints`.
 
-`personal-codex` fue sincronizado con `MartinFarmiaDevDocs`: los dos documentos
+El checkout privado fue sincronizado con `MartinFarmiaDevDocs`: los dos documentos
 de integraciones dejaron de existir como archivos no versionados y ahora viven
 como archivos versionados del repo privado.
 
@@ -180,7 +183,7 @@ como archivos versionados del repo privado.
 Ejecutado el 2026-08-10.
 
 Se revisaron reportes principales dentro de:
-`C:\Users\marti\OneDrive\Farmia\Archivado\documentacion-local-archivada\2026-08-10\03_auditorias_y_evidencia\2_Auditorias`.
+`<raiz-historica-FarmIA>\Archivado\documentacion-local-archivada\2026-08-10\03_auditorias_y_evidencia\2_Auditorias`.
 
 Las decisiones todavia utiles quedaron extraidas en:
 `docs/03-auditorias-gestion-decisiones-curadas.md`.
@@ -188,7 +191,7 @@ Las decisiones todavia utiles quedaron extraidas en:
 Conclusiones:
 
 - los reportes markdown principales siguen archivados como contexto historico;
-- las decisiones vigentes ya tienen un resumen corto en `personal-codex`;
+- las decisiones vigentes ya tienen un resumen corto en el checkout privado;
 - se eliminaron 76 carpetas generadas por Playwright, HTML reports,
   screenshots, videos, traces, exportaciones reproducibles y carpetas
   `artifacts*`;
@@ -202,7 +205,7 @@ Conclusiones:
 
 Ejecutado el 2026-08-10.
 
-La carpeta `C:\Users\marti\OneDrive\Farmia\Gestion - Agro` era material local
+La carpeta `<raiz-historica-FarmIA>\Gestion - Agro` era material local
 historico, no un checkout util del repo: tenia `.git`, pero `git status`
 indicaba una rama `master` sin commits, sin remotos y con todos los documentos
 sin versionar.

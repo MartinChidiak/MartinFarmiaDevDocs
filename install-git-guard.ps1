@@ -1,22 +1,31 @@
-$ErrorActionPreference = 'Stop'
+param(
+  [string]$FarmiaRepo,
+  [string]$ConfigPath
+)
 
-$personalRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
-$hooksPath = Join-Path $personalRoot 'git-hooks\farmia'
-$repo = 'C:\Users\marti\OneDrive\Farmia\farmia_app'
+$ErrorActionPreference = 'Stop'
+$docsRoot = [IO.Path]::GetFullPath((Split-Path -Parent $MyInvocation.MyCommand.Path))
+. (Join-Path $docsRoot 'scripts\farmia-devdocs-common.ps1')
+$settings = Get-FarmiaLocalSettings -DocsRoot $docsRoot -FarmiaRepo $FarmiaRepo -ConfigPath $ConfigPath
+$hooksPath = Join-Path $docsRoot 'git-hooks\farmia'
 $hook = Join-Path $hooksPath 'pre-commit'
 
 if (-not (Test-Path -LiteralPath $hook -PathType Leaf)) {
   throw "No se encontro el hook: $hook"
 }
+if (-not (Test-Path -LiteralPath $settings.FarmiaRepo -PathType Container)) {
+  throw "No se encontro el checkout de FarmIA: $($settings.FarmiaRepo)"
+}
 
-if (-not (Test-Path -LiteralPath (Join-Path $repo '.git'))) {
-  throw "No se encontro el checkout principal: $repo"
+& git -C $settings.FarmiaRepo rev-parse --is-inside-work-tree 2>&1 | Out-Null
+if ($LASTEXITCODE -ne 0) {
+  throw "La ruta no es un checkout Git: $($settings.FarmiaRepo)"
 }
 
 $gitHooksPath = $hooksPath.Replace('\', '/')
-& git -C $repo config --local core.hooksPath $gitHooksPath
+& git -C $settings.FarmiaRepo config --local core.hooksPath $gitHooksPath
 if ($LASTEXITCODE -ne 0) {
   throw 'No se pudo configurar core.hooksPath.'
 }
 
-Write-Output "Proteccion Git local instalada: $gitHooksPath"
+Write-Output "Proteccion Git local instalada en $($settings.FarmiaRepo): $gitHooksPath"

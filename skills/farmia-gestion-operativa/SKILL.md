@@ -23,7 +23,7 @@ Use current FarmIA code and contracts as the source of truth. Use the bundled re
 - Prefer current code and tests when personal notes disagree with the repository. State the discrepancy.
 - Treat `upstream/main` as the stable base and follow the active `AGENTS.md` branch and remote rules.
 - Do not rely on fixed local ports or a separate `farmia_app_prod` checkout. Use the generated worktree manifest and launcher.
-- Preserve ignored task notes with `personal-codex/backup-worktree-notes.ps1` before deleting a worktree. Never archive `.env` files or secrets.
+- Preserve supported ignored task notes with `backup-worktree-notes.ps1` from the current `MartinFarmiaDevDocs` checkout before deleting a worktree. Never archive `.env` files or secrets.
 - Keep `Movimiento` as real cash flow, not a formal accounting entry.
 - Require explicit, traceable transitions between documents, invoices, payments, collections, stock, grain, Caja, and reports.
 - Do not create duplicate economic impact when a read model already derives it from its source.

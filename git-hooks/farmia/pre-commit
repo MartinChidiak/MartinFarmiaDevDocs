@@ -4,7 +4,7 @@ blocked=""
 
 for path in $(git diff --cached --name-only --diff-filter=ACMR); do
   case "$path" in
-    .codex/config.toml|.env|.env.*|*/.env|*/.env.*|skills/farmia-gestion-operativa/*|docs/PROYECCION_TAB_AI_GUIDE.md|docs/GESTION_DATA_LOADING_MANUAL.md)
+    .codex/config.toml|.env|.env.*|*/.env|*/.env.*|skills/farmia-documentation-routing/*|skills/farmia-gestion-operativa/*|skills/farmia-local-maintenance/*|docs/04-operacion-local-y-upstream.md|docs/PROYECCION_TAB_AI_GUIDE.md|docs/GESTION_DATA_LOADING_MANUAL.md)
       blocked="$blocked\n  - $path"
       ;;
   esac

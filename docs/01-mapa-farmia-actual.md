@@ -5,7 +5,7 @@ Fecha de relevamiento: 2026-08-10.
 ## Hechos verificados
 
 - Checkout activo inspeccionado:
-  `C:\Users\marti\OneDrive\Farmia\farmia_app`.
+  el checkout activo de `farmia_app` configurado en cada máquina.
 - El repo activo esta en `main` y atrasado 39 commits respecto de
   `upstream/main` al momento del relevamiento.
 - La documentacion compartida principal vive en `farmia_app/docs`.
