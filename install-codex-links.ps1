@@ -44,7 +44,9 @@ foreach ($skill in $skills) {
     if (-not ($existing.Attributes -band [IO.FileAttributes]::ReparsePoint)) {
       throw "El destino existe y no es un enlace; no se modifico: $link"
     }
-    Remove-Item -Force -LiteralPath $link
+    # Borra solo el enlace: Remove-Item pide confirmacion en PowerShell 5.1
+    # y con -Recurse podria vaciar el destino.
+    [IO.Directory]::Delete($link)
   }
 
   New-Item -ItemType Junction -Path $link -Target $source | Out-Null

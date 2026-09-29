@@ -231,6 +231,152 @@ usar `scripts/diagnose-farmia-local.ps1` desde DevDocs antes de intervenir.
 **Última verificación:** 2026-08-28, contra `start-worktree-infra.mjs` y el
 launcher generado.
 
+## 7. Cerrar un worktree cuya rama ya se mergeó
+
+### Síntoma
+
+El PR de la rama ya entró en `upstream/main` y hay que decidir si el worktree,
+su stack Docker y la rama local se pueden borrar.
+
+### Causa habitual
+
+No hay un comando `worktree:remove` en el repositorio: el cierre es manual. Si se
+borra solo la carpeta, quedan contenedores, volúmenes e imágenes huérfanos
+(API y worker, de 0,7 a 2,3 GB cada una) y se pierden las notas ignoradas.
+
+### Diagnóstico
+
+```powershell
+git fetch upstream --prune
+gh pr list --repo tuficha/farmia_app --head <rama> --state merged --json number,headRefOid,mergedAt
+git -C <worktree> rev-parse HEAD            # igual a headRefOid del PR
+git rev-list --count upstream/main..<rama>  # 0
+git -C <worktree> status --porcelain        # vacío
+git -C <worktree> status --ignored --short  # notas y artefactos locales
+```
+
+La lista de stashes es compartida entre worktrees: un stash que nombra otra rama
+no pertenece al worktree que se cierra y no se toca.
+
+### Solución segura
+
+1. Respaldar notas: `.\backup-worktree-notes.ps1 -WhatIf` y después sin
+   `-WhatIf`. Solo copia `todo/lessons.gestion-agro.local.md`.
+2. Revisar el resto de ignorados: `tmp/`, `output/`, `playwright-report/` y
+   `test-results/` son regenerables. Lo que deba sobrevivir y tenga datos va a
+   almacenamiento local fuera de Git.
+3. Desde el worktree, con el `composeProject` del manifest:
+   `docker compose -p <composeProject> down -v --rmi local --remove-orphans`.
+   `-v` borra la base y LocalStack del worktree: usarlo solo con esa decisión
+   tomada.
+4. Desde el checkout principal: `git worktree remove <ruta>`. Si Windows deja
+   la carpeta vacía con `Permission denied`, algún proceso (terminal, editor o
+   sesión de agente) la tiene como directorio de trabajo; cerrarlo y borrarla.
+5. `git branch -D <rama>`: `-d` falla si el `main` local está atrasado respecto
+   de `upstream/main`; por eso la verificación de contención va primero.
+6. Pasar a este repositorio lo que sirva para otros casos (runbook, skill), no
+   el todo completo.
+
+### Prevención
+
+Cerrar cada worktree con estos pasos. Para detectar huérfanos, comparar
+`docker volume ls` y `docker images` (prefijo `farmia-wt-`) con
+`git worktree list`: el 2026-09-29 quedaban volúmenes de nueve worktrees ya
+borrados.
+
+**Última verificación:** 2026-09-29, cierre de
+`tincho/historial-costos-labores` (PR #777).
+
+## 8. La API del worktree no toma los cambios
+
+### Síntoma
+
+Después de editar `api/`, el E2E o el navegador siguen mostrando el
+comportamiento anterior.
+
+### Causa
+
+El contenedor API del worktree corre el `dist` compilado dentro de la imagen; no
+hay hot reload.
+
+### Diagnóstico
+
+Comparar la fecha de creación del contenedor con la del último cambio y
+confirmar la rama servida en `http://localhost:<frontend>/__farmia/runtime`.
+
+### Solución segura
+
+`docker compose up -d --build api` desde el worktree (y `api-compute` si el
+cambio toca lo que corre ahí) antes de volver a correr el E2E.
+
+### Prevención
+
+Reconstruir antes de cualquier validación de un cambio de API sin commitear.
+
+**Última verificación:** 2026-09-23, en `tincho/historial-costos-labores`.
+
+## 9. E2E de Gestión rojo por datos acumulados
+
+### Síntoma
+
+Los E2E de planillas de historial de costos o labores fallan con
+`COMPUTE_SPREADSHEET_LIMIT` sin cambios en el código relacionado.
+
+### Causa
+
+Los specs `e2e/gestion-r2/historial-costos*.spec.ts` crean clientes
+`E2E-GESTION-T2-*` en la cuenta `test2` y no los archivan. La hoja Lotes de las
+plantillas (`api/src/common/excel/gestion-lote-cascade.ts`) suma una columna
+oculta por Cliente/Campo/Lote y el límite es 256: con 80 clientes E2E llegó a
+257.
+
+### Diagnóstico
+
+Descargar `GET /gestion-costos-historial/template` con
+`Authorization: Bearer dev-token::test2%40gmail.com` y contar las columnas de
+la hoja Lotes.
+
+### Solución segura
+
+Archivar los clientes E2E viejos con `PATCH /clientes/:id/archive` en la base
+del worktree. No es una regresión: no tocar el límite.
+
+### Prevención
+
+Usar un worktree con base nueva para corridas largas o archivar periódicamente
+los clientes E2E.
+
+**Última verificación:** 2026-09-25, slot 2.
+
+## 10. Diff inflado por formateo en commits de Codex
+
+### Síntoma
+
+Un commit con pocos cambios reales muestra miles de líneas modificadas.
+
+### Causa
+
+Codex pasó Prettier o `prisma format` a archivos completos. `AGENTS.md` de
+`farmia_app` prohíbe el formateo amplio y Leo revisa a mano los PR de nivel 3.
+
+### Diagnóstico
+
+Comparar `git show --stat <commit>` con `git show --stat -w <commit>`. El
+2026-09-25 (`3533bc39f`) había ~4.300 líneas de ruido y menos de 600 reales.
+
+### Solución segura
+
+Restaurar el formato original con `git merge-file`: base = versión vieja
+formateada con la misma herramienta, ours = versión vieja, theirs = versión
+nueva. Resolver los conflictos con el lado nuevo y verificar que formatear el
+resultado dé exactamente la versión nueva.
+
+### Prevención
+
+Revisar `--stat -w` antes de dar una rama de Codex por lista para PR.
+
+**Última verificación:** 2026-09-25, en `tincho/historial-costos-labores`.
+
 ## Plantilla para nuevos incidentes
 
 ```markdown

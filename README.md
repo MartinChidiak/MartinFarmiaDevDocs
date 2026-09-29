@@ -9,12 +9,14 @@ su propia configuración ignorada.
 
 | Computadora | Checkout de DevDocs | Regla |
 | --- | --- | --- |
-| Laptop actual | `C:\dev\farmia_docs` | Trabajar e instalar exclusivamente desde este clon. |
-| Otra laptop | `C:\Users\Martin\OneDrive\Farmia\personal-codex` | Esperar OneDrive, luego sincronizar mediante Git. |
+| Laptop A | `C:\dev\farmia_docs` | Trabajar e instalar exclusivamente desde este clon. |
+| Laptop B (`C:\Users\marti`) | `C:\Dev\farmia_docs` | Igual; migrada desde OneDrive el 2026-09-29. |
 
-No copiar archivos entre los dos directorios ni usar ramas permanentes por
-computadora. OneDrive solo transporta físicamente el checkout de la otra laptop;
-los cambios versionados viajan por `origin/main`.
+Ambas usan la misma ruta, con `farmia_app` y `worktrees` como carpetas hermanas
+(los scripts las detectan solos). No copiar archivos entre computadoras ni usar
+ramas permanentes por computadora: los cambios versionados viajan por
+`origin/main`. OneDrive ya no forma parte del flujo; la copia vieja en
+`OneDrive\Farmia\personal-codex` quedó retirada y no se opera.
 
 El código activo y la documentación versionada de `farmia_app` prevalecen si
 una nota privada queda desactualizada.
@@ -71,18 +73,17 @@ Después de revisar, integrar a `main`. La otra computadora se actualiza con
 `git pull --ff-only`. Las diferencias de rutas y runtime pertenecen al archivo
 ignorado de cada máquina, no a ramas permanentes.
 
-## Bootstrap pendiente de la otra laptop
+## Migración de la laptop B (2026-09-29)
 
-1. Esperar que OneDrive finalice la sincronización.
-2. En su checkout, preservar cambios con un stash identificado y `-u`.
-3. Volver a `main` y ejecutar `git pull --ff-only`.
-4. Crear o validar su `config/farmia-project.config.toml` ignorado.
-5. Ejecutar los tres instaladores desde ese checkout.
-6. Revisar el stash archivo por archivo. No aplicar directamente la versión
-   vieja de `farmia-gestion-operativa` si referencia documentos inexistentes.
+1. Los cambios sin commitear del checkout de OneDrive se commitearon y se
+   rebasearon sobre `origin/main` (guías 04–08, `staging-copy`, filtros
+   compactos y excepción `.env.example` del hook).
+2. Clon nuevo en `C:\Dev\farmia_docs`; `config/farmia-project.config.toml` y
+   `worktree-notes/` se copiaron a mano y se verificaron por hash.
+3. Se ejecutaron los tres instaladores desde el clon nuevo.
 
-No operar ese checkout desde esta laptop ni usar ambas computadoras a la vez
-sobre la misma carpeta OneDrive.
+Para una computadora nueva, repetir el bootstrap de arriba en
+`C:\dev\farmia_docs`.
 
 ## Matriz de destinos
 

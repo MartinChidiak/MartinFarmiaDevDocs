@@ -11,7 +11,7 @@ contradicen estas notas, usar el estado actual y actualizar este repositorio.
 | [Mapa actual de FarmIA](./01-mapa-farmia-actual.md) | Vista rápida de módulos, carpetas y fuentes autoritativas. |
 | [Gestión operativa actual](./02-gestion-operativa-actual.md) | Guía para Gestión Administrativa, Gestión Agro, Caja, Documentos IA, compras, granos y Proyección. |
 | [Auditorías Gestión: decisiones curadas](./03-auditorias-gestion-decisiones-curadas.md) | Decisiones aún vigentes, hallazgos absorbidos y pendientes reales. |
-| [Operación local y upstream](./04-operacion-local-y-upstream.md) | Runbook canónico de Git, worktrees, Docker, puertos, Prisma, LocalStack y Windows. |
+| [Operación local y upstream](./04-operacion-local-y-upstream.md) | Runbook canónico de Git, worktrees (incluido su cierre), Docker, puertos, Prisma, LocalStack, E2E y Windows. |
 | [Copiar datos de staging a local](./04-copiar-datos-staging-a-local.md) | Procedimiento y scripts para copiar clientes/campos/lotes reales de staging a cualquier stack local, con geometria incluida. |
 | [Diferencias prod/staging/local en Gestion Agro](./05-diferencias-prod-staging-local-gestion-agro.md) | Estado comparado de plan de cultivos, historial de cultivos/costos y maestros; analisis previo a la carga de `Planting HJN 25.26`. |
 | [Propuesta: superficie informada vs. shape](./06-propuesta-superficie-lote-informada-vs-shape.md) | **Propuesta personal, sin implementar.** Por que divergen la superficie guardada y la del poligono, y como avisarlo / permitir recalcular. |
