@@ -1,0 +1,32 @@
+{
+  "createdAt": "2026-09-21T12:28:43.537Z",
+  "clientName": "Demo costos y OT 21122150",
+  "fieldName": "Campo Demostración",
+  "lotName": "Lote Norte 36 ha",
+  "lotId": "bdacc782-2c3c-4717-8b87-1c2efb91a0ee",
+  "campaign": "2026/2027",
+  "campaignId": "fa4d86e8-b766-498d-bf09-52a8f3f7f792",
+  "crop": "Soja",
+  "cropAssignmentId": "10d8bbbd-69d6-4f53-b7aa-380849cbecb5",
+  "planId": "2625be8c-0ca4-409c-9e43-24d879da13d6",
+  "planCode": "PLAN-2625be8c-0ca4-409c-9e43-24d879da13d6",
+  "planTitle": null,
+  "planTotalUsd": 4010.4,
+  "works": [
+    {
+      "id": "6e34ad23-c65e-4763-8a1b-d874089d3abd",
+      "name": "Siembra de soja"
+    },
+    {
+      "id": "a17372c3-f26e-479e-a7a6-f1b0ac52a46f",
+      "name": "Aplicación preemergente"
+    },
+    {
+      "id": "92acce83-f867-4abf-8f0e-58549c6f1052",
+      "name": "Cosecha prevista"
+    }
+  ],
+  "directReview": "Revisión de la orden\nEstos son los datos operativos que tendrá el borrador. Los importes permanecen en el plan y no pasan a la OT.\nOrigen: Plan de costos e insumos · PLAN-2625be8c-0ca4-409c-9e43-24d879da13d6 · revisión 2\nTrabajo: Siembra de soja\n36 ha planificadas · 0 ha ya programadas · 36 ha disponibles\nCultivo\nSoja\nUbicación\nLote Norte 36 ha\nLabor\nSiembra\nSuperficie\n36 ha\nFecha planificada\nSin fecha definida\nTercero / contratista\nOperación propia\nEquipo\nSin equipo asignado\nNotas generales\nSin notas\nInsumos previstos (1)\nSemilla de soja\n70 kg/ha · total 2.520 kg",
+  "operationsReview": "Revisión de la orden\nEstos son los datos operativos que tendrá el borrador. Los importes permanecen en el plan y no pasan a la OT.\nOrigen: Plan de costos e insumos · PLAN-2625be8c-0ca4-409c-9e43-24d879da13d6 · revisión 2\nTrabajo: Siembra de soja\n36 ha planificadas · 0 ha ya programadas · 36 ha disponibles\nCultivo\nSoja\nUbicación\nDemo costos y OT 21122150 / Campo Demostración / Lote Norte 36 ha\nLabor\nSiembra\nSuperficie\n36 ha\nFecha planificada\nSin fecha definida\nTercero / contratista\nOperación propia\nEquipo\nSin equipo asignado\nNotas generales\nSin notas\nInsumos previstos (1)\nSemilla de soja\n70 kg/ha · total 2.520 kg",
+  "sowingActivityId": "6e34ad23-c65e-4763-8a1b-d874089d3abd"
+}
