@@ -12,6 +12,10 @@ artifacts/
 *.dump
 *.sql
 
+# staging-copy: tokens and real-data exports must never be committed
+scripts/staging-copy/staging_token.txt
+scripts/staging-copy/staging_export.json
+
 # Editor and operating-system files
 .DS_Store
 Thumbs.db
