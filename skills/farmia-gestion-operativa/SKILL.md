@@ -1,6 +1,6 @@
 ---
 name: farmia-gestion-operativa
-description: Plan, audit, and prioritize FarmIA Gestion work from the current codebase. Use for Gestion Administrativa, Gestion Agro, Inicio Gestion, Caja, invoices, payments and collections, Documentos IA, Ficha 360, purchase and receipt reconciliation, grain operations and valuation, Proyeccion, operational periods, or deciding the next Gestion implementation step.
+description: Plan, audit, prioritize, and refine FarmIA Gestion work from the current codebase. Use for Gestion Administrativa, Gestion Agro, compact operational UI and filters, Inicio Gestion, Caja, invoices, payments and collections, Documentos IA, Ficha 360, purchase and receipt reconciliation, grain operations and valuation, Proyeccion, operational periods, or deciding the next Gestion implementation step.
 ---
 
 # FarmIA Gestion Operativa
@@ -29,6 +29,22 @@ Use current FarmIA code and contracts as the source of truth. Use the bundled re
 - Do not create duplicate economic impact when a read model already derives it from its source.
 - Preserve mandatory human review before Documentos IA creates an operational record.
 - Keep Gestion separate from GIS processing and Monitoreo unless a feature explicitly bridges them.
+
+## Compact filters in Gestion
+
+When the user asks to compact filters on a Gestion screen, use this as the default interaction pattern unless the workflow makes a different control genuinely primary:
+
+- Separate controls that change how data is read from filters that narrow the dataset.
+- Keep at most three frequent controls visible in a compact toolbar, without unnecessary vertical labels. Typical examples are view or grouping, type or status, and value or measure.
+- Put search, campaign, client, field, lot, crop, dates, and other scope filters behind one `Filtros` button by default. Keep one of them visible only when the user explicitly asks for it or the inspected workflow proves it is the screen's primary repeated action. Show the number of active hidden filters on the button.
+- When the closed panel would otherwise hide the dataset's context, show only the most relevant active scope values as removable chips beside `Filtros`; campaign, client, field, and lot are the usual maximum set. Do not mirror search, dates, crop, or secondary filters unless the workflow specifically needs them visible. Hide these chips while the panel is open.
+- Preserve hierarchy when removing scope chips: clearing client also clears field and lot, and clearing field also clears lot. Keep long labels compact with ellipsis while preserving the complete accessible name or tooltip.
+- Move secondary table options such as sorting or optional columns to a contextual three-dot menu when they do not deserve permanent space.
+- Inside the filter panel, avoid cards, repeated explanations, and separate titled sections. Use one responsive grid, a compact clear action, and only the fields needed for scope.
+- Use a searchable autocomplete instead of a closed selector for fields with many options or realistic growth, such as campaigns, clients, fields, lots, crops, products, and concepts. Keep a simple select for short closed vocabularies. Use client-side search for bounded loaded sets and virtualization or server filtering when the option set is genuinely large.
+- Aim for one row on wide desktop, two deliberate bands at intermediate widths, and stacked controls on mobile. The document must not overflow horizontally; wide tables scroll inside their own container.
+- Preserve accessible names, clear-all behavior, existing calculations, and focused desktop/mobile validation.
+- Keep a scope filter visible only when it is essential to the screen's primary task or is changed repeatedly during normal use.
 
 ## Workflow
 
